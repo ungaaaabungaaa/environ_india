@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environ INDIA</title>
+    <link rel="icon" type="image/x-icon" href="icons/User.svg">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="div_1">
+        <div class="form_container">
+            <input id="name" class="input_fields width_62" placeholder="Name" type="text" maxlength="25">
+            <input id="desgination" class="input_fields width_52" placeholder="Desgination" type="text" maxlength="60">
+            <input id="emp_code" class="input_fields width_22" placeholder="EMP Code" maxlength="10">
+            <input id="contact" class="input_fields width_46" placeholder="Mobile Number" maxlength="10">
+            <div class="pick_sub_Container" onclick="selectImage()">
+                <button class="Pick_Button">Choose</button>
+                <input type="file" id="fileInput" accept="image/*"
+                    style="opacity: 0; position: absolute; left: 0; top: 0;" onchange="displaySelectedImage(event)">
+                <img class="Pick_Image" src="icons/square-fill.svg" alt="Preview Pick">
+            </div>
+        </div>
+    </div>
+    <div class="div_2">
+        <div class="div_2_1">
+        </div>
+        <div class="div_2_2">
+        </div>
+        <div class="div_2_3">
+            <button id="Front" class="preview_button">FRONT</button>
+            <button id="Back" class="preview_button">BACK</button>
+            <iconify-icon id="resetButton" icon="iconamoon:restart" style="color: black;" width="32"
+                height="32"></iconify-icon>
+        </div>
+    </div>
+    <div id="snackbar"></div>
+    <script src="app.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+</body>
+
+</html>

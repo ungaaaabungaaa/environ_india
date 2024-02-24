@@ -1,0 +1,383 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #23997D;
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: 4% 56% 36% 4%;
+    grid-template-rows: 5% 8% 74% 8% 5%;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
+.div_1 {
+    width: 100%;
+    height: 100%;
+    border-radius: 32px;
+    background-color: #79D1BC;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+
+.div_2 {
+    width: 85%;
+    height: 100%;
+    border-radius: 36px;
+    background-color: #FFF;
+    grid-row-start: 2;
+    grid-row-end: 5;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 56% 34%;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.div_2_1 {
+    width: 94%;
+    height: 100%;
+    grid-row-start: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+
+.div_2_2 {
+    width: 100%;
+    height: 100%;
+    grid-row-start: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.div_2_3 {
+    width: 100%;
+    height: 100%;
+    grid-row-start: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.preview_button {
+    background-color: #000000;
+    color: #FFF;
+    font-size: larger;
+    width: 86%;
+    padding-top: 21px;
+    padding-bottom: 21px;
+    border-radius: 21px;
+    border: none;
+    margin-bottom: 2.5%;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    box-sizing: border-box;
+    margin-bottom: 2.1%;
+}
+
+.preview_image {
+    width: 28%;
+    height: auto;
+    object-fit: contain;
+}
+
+.form_container {
+    width: 70%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    padding-left: 2.4%;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.input_fields {
+    padding: 2.6%;
+    margin-bottom: 1.2%;
+    color: #000000;
+    border: none;
+    background-color: #FFF;
+    border-radius: 12px;
+    font-size: 18px;
+    outline: none;
+    text-overflow: ellipsis;
+    padding-right: 30px;
+}
+
+.width_62 {
+    width: 62%;
+}
+
+.width_22 {
+    width: 22%;
+}
+
+.width_46 {
+    width: 46%;
+}
+
+.width_32 {
+    width: 32%;
+}
+
+.width_52 {
+    width: 52%;
+}
+
+input::placeholder {
+    color: #000;
+    font-size: 18px;
+    outline: none;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Style for the icon */
+.input_fields::after {
+    content: '';
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+}
+
+
+
+.image_Picker_Container {
+    width: 75%;
+    border-radius: 12px;
+    font-size: 18px;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+#User_Pick_Button {
+    background-color: #FFF;
+    height: max-content;
+    width: 60%;
+    height: fit-content;
+    border-radius: 12px;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    text-align: left;
+}
+
+.pick_main_container {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.Pick_Button {
+    height: 100%;
+    width: auto;
+    color: #000000;
+    border: none;
+    background-color: #FFF;
+    border-radius: 12px;
+    font-size: 18px;
+    outline: none;
+    padding-left: 5.5%;
+    padding-right: 5.5%;
+    text-align: left;
+}
+
+.Pick_Image {
+    margin-left: 12.5%;
+    margin-right: 16.5%;
+    width: 100%;
+    border-radius: 2px;
+    max-width: 100%;
+    max-height: 75.5%;
+    object-fit: contain;
+}
+
+.pick_sub_Container {
+    padding-right: 2.5%;
+    padding-left: 5.5%;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFF;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+
+
+/* SnackBar Toast */
+
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    max-width: 450px;
+    margin-left: -125px;
+    background-color: #000;
+    color: #FFF;
+    font-size: 18px;
+    outline: none;
+    text-overflow: ellipsis;
+    text-align: center;
+    border-radius: 12px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.9s, fadeout 0.9s 2.5s;
+    animation: fadein 0.9s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+/* SnackBar Toast */
+
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+
+
+/* SnackBar Toast */
