@@ -10,9 +10,6 @@ Environ INDIA is a web application designed to [provide a brief overview of what
 
 - Allows users to Genrate ID Card for there company
 
-## Screenshots
-![App Main Interface](https://imgur.com/a/CsAaRmA)
-
 ## Usage
 
 1. Clone this repository to your local machine.
