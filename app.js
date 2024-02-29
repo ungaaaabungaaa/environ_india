@@ -55,7 +55,7 @@ function displaySelectedImage(event) {
     }
 }
 
-function addTextAndOverlayToFrontImage(name, empCode, overlaySrc, designation, contact) {
+function addTextAndOverlayToFrontImage(name, title, empCode, overlaySrc, designation, contact) {
     console.log("Generating front Image");
     const overlayY = 240;
     const overlayWidth = 280;
@@ -87,7 +87,12 @@ function addTextAndOverlayToFrontImage(name, empCode, overlaySrc, designation, c
                 ctx.fillStyle = 'black';
                 ctx.textAlign = 'center'; // Center align the text
                 // Draw name
-                ctx.fillText(name, canvas.width / 2, 660);
+                ctx.fillText(name, canvas.width / 2, 670);
+                // Text Styles
+                ctx.font = '46px "Roboto", sans-serif';
+                ctx.fillStyle = 'black';
+                ctx.textAlign = 'center'; // Center align the text
+                ctx.fillText(title, canvas.width / 2, 625);
                 // Designation
                 ctx.font = '32px "Roboto", sans-serif';
                 ctx.fillText(designation, canvas.width / 2, 720);
@@ -119,6 +124,7 @@ function addTextAndOverlayToFrontImage(name, empCode, overlaySrc, designation, c
 
 function validateFields() {
     const nameInput = document.getElementById('name').value.trim();
+    const titleInput = document.getElementById('title').value.trim();
     const desginationInput = document.getElementById('desgination').value.trim();
     const empCodeInput = document.getElementById('emp_code').value.trim();
     const selectedImage = document.getElementById('fileInput').files[0]; // Get selected image file
@@ -127,6 +133,7 @@ function validateFields() {
     const errorMessages = {
         name: 'Please Enter Name & Spaces',
         desgination:'Please enter desgination',
+        title:'Please Enter a Title',
         empCode: 'Please Enter EMP CODE',
         image: 'Please Select An Image',
         allFieldsEmpty: 'All fields are Empty. Please Fill In The Details.'
@@ -135,6 +142,7 @@ function validateFields() {
     // Check for errors
     const errors = [];
     if (nameInput === '') errors.push(errorMessages.name);
+    if (titleInput === '') errors.push(errorMessages.title);
     if (desginationInput === '') errors.push(errorMessages.desgination);
     if (!selectedImage) errors.push(errorMessages.image); // Validate if an image is selected
     // Check if all fields are empty
@@ -154,6 +162,7 @@ function validateFields() {
 // Function to clear all form fields and display "Cleared" message
 function clearFields() {
     document.getElementById('name').value = ''; // Clear name field
+     document.getElementById('title').value = ''; // Clear name field
     document.getElementById('emp_code').value = ''; // Clear EMP code field
      document.getElementById('desgination').value = ''; // Clear desgination code field
     document.getElementById('contact').value = ''; // Clear contact field
@@ -227,13 +236,14 @@ document.getElementById('Front').addEventListener('click', async function () {
     if (isValid) {
         // Assuming you have references to the form fields and the selected image
         const name = document.getElementById('name').value.trim();
+        const title = document.getElementById('title').value.trim();
         const desgination = document.getElementById('desgination').value.trim();
         const empCode = document.getElementById('emp_code').value.trim();
         const contact = document.getElementById('contact').value.trim();
         const selectedImage = document.getElementById('fileInput').files[0];
         const imagePath = URL.createObjectURL(selectedImage); // Get the image path
         try {
-            addTextAndOverlayToFrontImage(name, empCode, imagePath, desgination, contact);
+            addTextAndOverlayToFrontImage(name, title, empCode, imagePath, desgination, contact);
         } catch (error) {
             console.error("Error obtaining image dimensions:", error);
             snackbar("Error obtaining image dimensions");

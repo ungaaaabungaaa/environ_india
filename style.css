@@ -95,7 +95,7 @@ body {
 }
 
 .preview_image {
-    width: 28%;
+    max-width: 72%;
     height: auto;
     object-fit: contain;
 }
