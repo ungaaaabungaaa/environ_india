@@ -1,6 +1,6 @@
 # Environ INDIA
 
-Environ INDIA is a project aimed at [describe briefly what your project does].
+Environ INDIA is a project aimed at Genrating ID Card For Employes.
 
 ## Introduction
 
@@ -32,6 +32,3 @@ The project structure is as follows:
 
 Contributions to Environ INDIA are welcome! If you find any bugs or have suggestions for improvements, feel free to open an issue or create a pull request.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
