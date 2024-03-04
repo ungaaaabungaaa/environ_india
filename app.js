@@ -57,7 +57,7 @@ function displaySelectedImage(event) {
 
 function addTextAndOverlayToFrontImage(name, title, empCode, overlaySrc, designation, contact) {
     console.log("Generating front Image");
-    const overlayY = 240;
+    const overlayY = 280;
     const overlayWidth = 280;
     const overlayHeight = 320;
     const frontImg = new Image();
@@ -89,10 +89,10 @@ function addTextAndOverlayToFrontImage(name, title, empCode, overlaySrc, designa
                 // Draw name
                 ctx.fillText(name, canvas.width / 2, 670);
                 // Text Styles
-                ctx.font = '46px "Roboto", sans-serif';
+                ctx.font = '38px "Roboto", sans-serif';
                 ctx.fillStyle = 'black';
                 ctx.textAlign = 'center'; // Center align the text
-                ctx.fillText(title, canvas.width / 2, 625);
+                ctx.fillText(title, canvas.width / 2, 270);
                 // Designation
                 ctx.font = '32px "Roboto", sans-serif';
                 ctx.fillText(designation, canvas.width / 2, 720);
@@ -117,7 +117,7 @@ function addTextAndOverlayToFrontImage(name, title, empCode, overlaySrc, designa
             };
             overlayImg.src = overlaySrc;
         };
-        frontImg.src = 'Templates/Front.jpg';
+        frontImg.src = 'Templates/Front.png';
     });
 }
 
@@ -214,7 +214,7 @@ document.getElementById('Back').addEventListener('click', async function () {
     const isValid = validateFields();
     if (isValid) {
         try {
-            const templatePath = 'Templates/Back.jpg'; // Set the path to your template image
+            const templatePath = 'Templates/Back.png'; // Set the path to your template image
             const downloadLink = document.createElement('a');
             downloadLink.href = templatePath;
             downloadLink.download = 'back.jpg'; // Set the filename for download
