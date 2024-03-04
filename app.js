@@ -124,7 +124,6 @@ function addTextAndOverlayToFrontImage(name, title, empCode, overlaySrc, designa
 
 function validateFields() {
     const nameInput = document.getElementById('name').value.trim();
-    const titleInput = document.getElementById('title').value.trim();
     const desginationInput = document.getElementById('desgination').value.trim();
     const empCodeInput = document.getElementById('emp_code').value.trim();
     const selectedImage = document.getElementById('fileInput').files[0]; // Get selected image file
@@ -133,7 +132,6 @@ function validateFields() {
     const errorMessages = {
         name: 'Please Enter Name & Spaces',
         desgination:'Please enter desgination',
-        title:'Please Enter a Title',
         empCode: 'Please Enter EMP CODE',
         image: 'Please Select An Image',
         allFieldsEmpty: 'All fields are Empty. Please Fill In The Details.'
@@ -142,7 +140,6 @@ function validateFields() {
     // Check for errors
     const errors = [];
     if (nameInput === '') errors.push(errorMessages.name);
-    if (titleInput === '') errors.push(errorMessages.title);
     if (desginationInput === '') errors.push(errorMessages.desgination);
     if (!selectedImage) errors.push(errorMessages.image); // Validate if an image is selected
     // Check if all fields are empty
@@ -162,7 +159,7 @@ function validateFields() {
 // Function to clear all form fields and display "Cleared" message
 function clearFields() {
     document.getElementById('name').value = ''; // Clear name field
-     document.getElementById('title').value = ''; // Clear name field
+    document.getElementById('title').value = ''; // Clear name field
     document.getElementById('emp_code').value = ''; // Clear EMP code field
      document.getElementById('desgination').value = ''; // Clear desgination code field
     document.getElementById('contact').value = ''; // Clear contact field
