@@ -40,13 +40,13 @@ function selectImage() {
 // Display image
 function displaySelectedImage(event) {
     const selectedFile = event.target.files[0];
-    const imageElement = document.querySelector('.Pick_Image');
+    const imageElement = document.querySelector('.placeholder-image'); // Select the image element
     if (selectedFile && selectedFile.type.startsWith('image/')) {
         const reader = new FileReader();
         reader.onload = function (e) {
-            imageElement.src = e.target.result;
-            imageElement.style.width = '45px'; // Set a fixed width (change as needed)
-            imageElement.style.height = '45px'; // Set a fixed height (change as needed)
+            imageElement.src = e.target.result; // Update the src attribute of the image element
+            imageElement.style.width = '150px'; // Set a fixed width (change as needed)
+            imageElement.style.height = '150px'; // Set a fixed height (change as needed)
             imageElement.style.objectFit = 'cover'; // Maintain aspect ratio and cover the container
         };
         reader.readAsDataURL(selectedFile);
@@ -55,7 +55,7 @@ function displaySelectedImage(event) {
     }
 }
 
-function addTextAndOverlayToFrontImage(name, title, empCode, overlaySrc, designation, contact) {
+function addTextAndOverlayToFrontImage(name, title, empCode, overlaySrc, designation, contact ,bloodGroup) {
     console.log("Generating front Image");
     const overlayY = 280;
     const overlayWidth = 280;
@@ -102,6 +102,14 @@ function addTextAndOverlayToFrontImage(name, title, empCode, overlaySrc, designa
                 // Phone number
                 ctx.font = '26px "Roboto", sans-serif';
                 ctx.fillText(`Mobile : ${contact}`,canvas.width / 2, 820);
+
+
+                ctx.font = '26px "Roboto", sans-serif';
+                ctx.fillStyle = 'black';
+                ctx.textAlign = 'center'; // Center align the text
+                // Draw BloodGroup
+                ctx.fillText(`BloodGroup : ${bloodGroup}`, canvas.width / 2, 860);
+
                 
                 const FrontFileName = `${empCode}_Front_ID.jpg`;
                 saveCanvasAsImage(canvas, FrontFileName)
@@ -124,6 +132,7 @@ function addTextAndOverlayToFrontImage(name, title, empCode, overlaySrc, designa
 
 function validateFields() {
     const nameInput = document.getElementById('name').value.trim();
+    const bloodGroupInput =document.getElementById('BloodGroup').value.trim();
     const desginationInput = document.getElementById('desgination').value.trim();
     const empCodeInput = document.getElementById('emp_code').value.trim();
     const selectedImage = document.getElementById('fileInput').files[0]; // Get selected image file
@@ -134,12 +143,14 @@ function validateFields() {
         desgination:'Please enter desgination',
         empCode: 'Please Enter EMP CODE',
         image: 'Please Select An Image',
+        bloodGroup: 'Please Enter Blood Group',
         allFieldsEmpty: 'All fields are Empty. Please Fill In The Details.'
     };
 
     // Check for errors
     const errors = [];
     if (nameInput === '') errors.push(errorMessages.name);
+    if (bloodGroupInput === '') errors.push(errorMessages.bloodGroup);
     if (desginationInput === '') errors.push(errorMessages.desgination);
     if (!selectedImage) errors.push(errorMessages.image); // Validate if an image is selected
     // Check if all fields are empty
@@ -160,8 +171,9 @@ function validateFields() {
 function clearFields() {
     document.getElementById('name').value = ''; // Clear name field
     document.getElementById('title').value = ''; // Clear name field
+    document.getElementById('bloodGroup').value='';// Clear BloodGroup field
     document.getElementById('emp_code').value = ''; // Clear EMP code field
-     document.getElementById('desgination').value = ''; // Clear desgination code field
+    document.getElementById('desgination').value = ''; // Clear desgination code field
     document.getElementById('contact').value = ''; // Clear contact field
     document.querySelector('.Pick_Image').src = '/icons/square-fill.svg'; // Reset image source to default
     // Display "Cleared" snackbar message
@@ -233,6 +245,7 @@ document.getElementById('Front').addEventListener('click', async function () {
     if (isValid) {
         // Assuming you have references to the form fields and the selected image
         const name = document.getElementById('name').value.trim();
+        const bloodGroup = document.getElementById('BloodGroup').value.trim();
         const title = document.getElementById('title').value.trim();
         const desgination = document.getElementById('desgination').value.trim();
         const empCode = document.getElementById('emp_code').value.trim();
@@ -240,7 +253,7 @@ document.getElementById('Front').addEventListener('click', async function () {
         const selectedImage = document.getElementById('fileInput').files[0];
         const imagePath = URL.createObjectURL(selectedImage); // Get the image path
         try {
-            addTextAndOverlayToFrontImage(name, title, empCode, imagePath, desgination, contact);
+            addTextAndOverlayToFrontImage(name, title, empCode, imagePath, desgination, contact ,bloodGroup);
         } catch (error) {
             console.error("Error obtaining image dimensions:", error);
             snackbar("Error obtaining image dimensions");
@@ -248,11 +261,4 @@ document.getElementById('Front').addEventListener('click', async function () {
         }
     }
 });
-
-// Event listener for the reset button click
-document.getElementById('resetButton').addEventListener('click', function () {
-    clearFields(); // Call the function to clear fields and display message
-});
-
-
 
