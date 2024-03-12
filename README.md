@@ -1,7 +1,7 @@
 # Environ INDIA
 
 Environ INDIA is a project aimed at Genrating ID Card For Employes.
-![Preview](https://i.imgur.com/xthewCE.png)
+![Preview](https://i.imgur.com/XhZUSJe.png)
 ## Introduction
 
 Environ INDIA is a web application designed to [provide a brief overview of what the application does]. It is developed using HTML, CSS, and JavaScript.
