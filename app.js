@@ -111,7 +111,7 @@ function addTextAndOverlayToFrontImage(name, title, empCode, overlaySrc, designa
                 ctx.fillText(`BloodGroup : ${bloodGroup}`, canvas.width / 2, 860);
 
                 
-                const FrontFileName = `${empCode}_Front_ID.jpg`;
+                const FrontFileName = `${empCode}_Front_ID`;
                 saveCanvasAsImage(canvas, FrontFileName)
                     .then(() => {
                         frontLabelGenerated = true;
@@ -226,7 +226,7 @@ document.getElementById('Back').addEventListener('click', async function () {
             const templatePath = 'Templates/Back.png'; // Set the path to your template image
             const downloadLink = document.createElement('a');
             downloadLink.href = templatePath;
-            downloadLink.download = 'back.jpg'; // Set the filename for download
+            downloadLink.download = 'back'; // Set the filename for download
             downloadLink.style.display = 'none'; // Hide the link
             document.body.appendChild(downloadLink); // Append the link to the document body
             downloadLink.click(); // Simulate a click on the link to trigger download
