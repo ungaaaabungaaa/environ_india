@@ -1,10 +1,3 @@
-
-// fix the preivew
-// make the croppie layout mobile responsive
-// check all the cases and add in hardcoding for bloodgroup with hint choose
-
-
-
 let frontLabelGenerated = false; // Flag to track front label generation
 let backLabelGenerated = false; // Flag to track back label generation
 let croppedImageBlob; // Variable to store the cropped image blob
@@ -46,6 +39,24 @@ nameInputField.addEventListener("input", function (event) {
         nameInputField.value = nameInputField.value.replace(/[^A-Za-z\s]/g, '');
     }
 });
+
+document.getElementById('date').addEventListener('input', function (e) {
+    let inputValue = e.target.value;
+    if (/^\d{2}$/.test(inputValue)) {
+        e.target.value = inputValue + '/';
+    } else if (/^\d{2}\/\d{2}$/.test(inputValue)) {
+        e.target.value = inputValue + '/';
+    }
+});
+
+document.getElementById('BloodGroup').addEventListener('input', function (e) {
+    let inputValue = e.target.value.toUpperCase();
+    // Remove any non-blood group characters
+    inputValue = inputValue.replace(/[^ABO+\-]/g, '');
+    e.target.value = inputValue;
+});
+
+
 
 // Add event listener to the span element
 document.getElementById('upload_button').addEventListener('click', function () {
@@ -104,8 +115,10 @@ document.getElementById('Front').addEventListener('click', async function () {
             const designation = document.getElementById('desgination').value.trim();
             const empCode = document.getElementById('emp_code').value.trim();
             const contact = document.getElementById('contact').value.trim();
+            const date = document.getElementById('date').value.trim();
+
             // Call the function to add text and overlay to the front image
-            addTextAndOverlayToFrontImage(name, title, empCode, croppedImageBlob, designation, contact, bloodGroup);
+            addTextAndOverlayToFrontImage(name, title, empCode, croppedImageBlob, designation, contact, bloodGroup ,date);
         } else {
             // If it's not a valid blob, show an error message
             snackbar('Error: Cropped image is not valid.');
@@ -119,6 +132,8 @@ function validateFields() {
     const bloodGroupInput = document.getElementById('BloodGroup').value.trim();
     const designationInput = document.getElementById('desgination').value.trim();
     const empCodeInput = document.getElementById('emp_code').value.trim();
+    const joinDateInput = document.getElementById('date').value.trim();
+
    
     // Define error messages
     const errorMessages = {
@@ -127,12 +142,14 @@ function validateFields() {
         empCode: 'Please Enter EMP CODE',
         image: 'Please Select An Image',
         bloodGroup: 'Please Enter Blood Group',
+        joinDate: 'Please Enter Joining Date',
         allFieldsEmpty: 'All fields are Empty. Please Fill In The Details.'
     };
 
     // Check for errors
     const errors = [];
     if (nameInput === '') errors.push(errorMessages.name);
+    if(joinDateInput === '') errors.push(errorMessages.joinDate);
     if(empCodeInput === '') errors.push(errorMessages.empCode);
     if (bloodGroupInput === '') errors.push(errorMessages.bloodGroup);
     if (designationInput === '') errors.push(errorMessages.designation);
@@ -177,7 +194,7 @@ function saveCanvasAsImage(canvas, fileName) {
   }, 5000);
 }
 
-async function addTextAndOverlayToFrontImage(name, title, empCode, croppedImageBlob, designation, contact, bloodGroup) {
+async function addTextAndOverlayToFrontImage(name, title, empCode, croppedImageBlob, designation, contact, bloodGroup, joiningdate) {
   console.log("Generating front Image");
   const frontImg = new Image();
   frontImg.crossOrigin = "Anonymous";
@@ -200,7 +217,7 @@ async function addTextAndOverlayToFrontImage(name, title, empCode, croppedImageB
         const x = (canvas.width - width) / 2;
         const y = 250;
         ctx.drawImage(croppedImg, x, y, width, height);
-        drawText(ctx, name, title, designation, empCode, contact, bloodGroup);
+        drawText(ctx, name, title, designation, empCode, contact, bloodGroup ,joiningdate);
         saveCanvasAsImage(canvas, `${empCode}_Front_ID`)
           .then(() => {
             frontLabelGenerated = true;
@@ -236,7 +253,7 @@ function resizeImage(img, width, height) {
   return { width, height };
 }
 
-function drawText(ctx, name, title, designation, empCode, contact, bloodGroup) {
+function drawText(ctx, name, title, designation, empCode, contact, bloodGroup ,joiningdate) {
   const centerX = ctx.canvas.width / 2;
   let currentY = 510;
 
@@ -264,7 +281,13 @@ function drawText(ctx, name, title, designation, empCode, contact, bloodGroup) {
   // Blood Group
   const BloodText = `BloodGroup: ${bloodGroup}`;
   ctx.fillText(BloodText, centerX, currentY);
-  currentY += 175;
+  currentY += 50;
+
+  // joinin date
+  const JoiningDate = `Joining Date: ${joiningdate}`;
+  ctx.fillText(JoiningDate, centerX, currentY);
+  currentY += 135;
+
 
   // Employee Code
   ctx.font = "36px 'Roboto', sans-serif";
