@@ -15,13 +15,23 @@
         rel="stylesheet">
     <!-- Mis estilos -->
     <link rel="stylesheet" href="style.css">
-    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js"></script>
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+   
 </head>
 
 <body class="container-fluid">
 
     <main class="row">
 
+        
         <section class="col-md-6" id="panel-left">
             <div class="container align-self-center">
                 <div class="row">
@@ -30,27 +40,26 @@
                 <div class="row">
                     <p class="col-12 text-center description">
                         Employe ID Card Genarator
+                        
                     </p>
                 </div>
                 <div class="row mt-5">
                     <div class="col-12 logo-container d-flex justify-content-center">
-                        <dotlottie-player src="animations/Environ.json" background="transparent" speed="1"
-                            style="width: 65%; height: auto;" loop autoplay></dotlottie-player>
-                    </div>
+                    <lottie-player src="https://lottie.host/81fb0b36-f792-4e1a-bc13-2c773fa78128/TonK7onxxX.json" background="transparent"
+                        speed="1" style="width: 62%; height: auto" loop  autoplay></lottie-player>
+                        
                 </div>
             </div>
         </section>
 
+    
         <section class="col-md-6" id="panel-right">
             <div class="container">
                 <div class="row mb-5">
                     <h2 class="col-12 text-center">Enter Details</h2>
                     <div id="Pick_Image" class="col-12 d-flex justify-content-center">
-                        <img src="Resources/placeholder.webp" onclick="selectImage()" alt="Placeholder Image"
+                        <img src="Resources/placeholder.webp" onclick="toggleLayout()" alt="Placeholder Image"
                             class="placeholder-image">
-                        <input type="file" id="fileInput" accept="image/*"
-                            style="opacity: 0; position: absolute; left: 0; top: 0;"
-                            onchange="displaySelectedImage(event)">
                     </div>
                 </div>
                 <div class="row">
@@ -90,6 +99,23 @@
                 </div>
             </div>
         </section>
+        
+       
+        
+
+        <!-- cropper layout -->
+        <div id="cropper_layout" class="cropper_layout">
+            <h3>Image Cropper</h3>
+            <div id="cropper" class="cropper"></div>
+            <div class="side_icon">
+            <input type="file" id="upload_input" accept="image/*" style="display: none;">
+            <span id="upload_button" class="material-symbols--upload"></span>
+            <button id="save" class="btn btn-primary custom-btn mr-2">save</button>
+            <span id="reset" class="fluent--arrow-reset-20-filled"></span>
+            </div>
+        </div>
+
+
         <div id="snackbar"></div>
         <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
         <script src="app.js"></script>
