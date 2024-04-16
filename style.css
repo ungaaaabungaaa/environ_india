@@ -355,4 +355,10 @@ h3
         font-size: medium;
         margin: 6.5%;
     }
+
+    #panel-right
+    {
+        padding-top: 5.2%;
+        padding-bottom: 5.2%;
+    }
 }

@@ -270,7 +270,8 @@ function drawText(ctx, name, title, designation, empCode, contact, bloodGroup ,j
   currentY += 50;
 
   // Designation
-  ctx.fillText(designation, centerX, currentY);
+  const Designation = `Designation: ${designation}`;
+  ctx.fillText(Designation, centerX, currentY);
   currentY += 50;
 
   // Contact Number
