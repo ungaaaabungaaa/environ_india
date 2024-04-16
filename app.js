@@ -240,14 +240,14 @@ function drawText(ctx, name, title, designation, empCode, contact, bloodGroup) {
   let currentY = 510;
 
   // Name
-  ctx.font = "bold 46px 'Raleway', sans-serif";
+  ctx.font = "bold 46px 'Roboto', sans-serif";
   ctx.fillStyle = "black";
   ctx.textAlign = "center";
   ctx.fillText(name, centerX, currentY);
   currentY += 65;
 
   // Title
-  ctx.font = "36px 'Raleway', sans-serif";
+  ctx.font = "36px 'Roboto', sans-serif";
   ctx.fillText(title, centerX, currentY);
   currentY += 50;
 
@@ -266,7 +266,7 @@ function drawText(ctx, name, title, designation, empCode, contact, bloodGroup) {
   currentY += 175;
 
   // Employee Code
-  ctx.font = "36px 'Raleway', sans-serif";
+  ctx.font = "36px 'Roboto', sans-serif";
   ctx.fillText(empCode, centerX, currentY);
 }
 
