@@ -1,6 +1,7 @@
 # Environ INDIA
 ### Environ INDIA is a project aimed at Genrating ID Card For Employes.
 ![Preview](https://i.imgur.com/XhZUSJe.png)
+## Croppie
 ![Preview](https://i.imgur.com/sgYiPDk.png)
 ## Introduction
 
