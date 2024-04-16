@@ -1,7 +1,7 @@
 # Environ INDIA
-
-Environ INDIA is a project aimed at Genrating ID Card For Employes.
+### Environ INDIA is a project aimed at Genrating ID Card For Employes.
 ![Preview](https://i.imgur.com/XhZUSJe.png)
+![Preview](https://i.imgur.com/sgYiPDk.png)
 ## Introduction
 
 Environ INDIA is a web application designed to [provide a brief overview of what the application does]. It is developed using HTML, CSS, and JavaScript.
@@ -9,6 +9,9 @@ Environ INDIA is a web application designed to [provide a brief overview of what
 ## Features
 
 - Allows users to Genrate ID Card for there company
+- Allows users to upload and crop there profile photo
+- Mobile Responsive
+
 
 ## Usage
 
@@ -26,6 +29,7 @@ The project structure is as follows:
 ## Dependencies
 
 - [Font Awesome](https://fontawesome.com/): Used for icons.
+- [Croppie](https://foliotek.github.io/Croppie/): Used for ImageCropping.
 - [Google Fonts](https://fonts.google.com/): Used for fonts.
 
 ## Contributions
