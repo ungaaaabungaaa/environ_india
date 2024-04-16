@@ -133,10 +133,11 @@ function validateFields() {
     // Check for errors
     const errors = [];
     if (nameInput === '') errors.push(errorMessages.name);
+    if(empCodeInput === '') errors.push(errorMessages.empCode);
     if (bloodGroupInput === '') errors.push(errorMessages.bloodGroup);
     if (designationInput === '') errors.push(errorMessages.designation);
     // Check if all fields are empty
-    const allFieldsEmpty = [nameInput, empCodeInput].every(field => field === '');
+    const allFieldsEmpty = [nameInput, empCodeInput,bloodGroupInput,designationInput].every(field => field === '');
     if (allFieldsEmpty) {
         snackbar(errorMessages.allFieldsEmpty);
         return false;
