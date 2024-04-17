@@ -255,27 +255,29 @@ function resizeImage(img, width, height) {
 
 function drawText(ctx, name, title, designation, empCode, contact, bloodGroup ,joiningdate) {
   const centerX = ctx.canvas.width / 2;
+  const CenterY = 235;
+  
+  // Title
+  ctx.font = "bold 46px 'Roboto', sans-serif";
+  ctx.textAlign = "center";
+  ctx.fillStyle = "black";
+  ctx.fillText(title, centerX, CenterY);
+
   let currentY = 510;
 
   // Name
-  ctx.font = "bold 46px 'Roboto', sans-serif";
-  ctx.fillStyle = "black";
-  ctx.textAlign = "center";
   ctx.fillText(name, centerX, currentY);
   currentY += 65;
 
-  // Title
-  ctx.font = "36px 'Roboto', sans-serif";
-  ctx.fillText(title, centerX, currentY);
-  currentY += 50;
 
   // Designation
+  ctx.font = "36px 'Roboto', sans-serif";
   const Designation = `Designation: ${designation}`;
   ctx.fillText(Designation, centerX, currentY);
   currentY += 50;
 
   // Contact Number
-  const ContactText = `Phone: ${contact}`;
+  const ContactText = `Contact Number: ${contact}`;
   ctx.fillText(ContactText, centerX, currentY);
   currentY += 50;
 
@@ -285,9 +287,9 @@ function drawText(ctx, name, title, designation, empCode, contact, bloodGroup ,j
   currentY += 50;
 
   // joinin date
-  const JoiningDate = `Joining Date: ${joiningdate}`;
+  const JoiningDate = `Date Of Joining: ${joiningdate}`;
   ctx.fillText(JoiningDate, centerX, currentY);
-  currentY += 135;
+  currentY += 180;
 
 
   // Employee Code
