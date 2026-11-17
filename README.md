@@ -37,3 +37,16 @@ The project structure is as follows:
 
 Contributions to Environ INDIA are welcome! If you find any bugs or have suggestions for improvements, feel free to open an issue or create a pull request.
 
+
+## Hosting cost controls
+
+This app uses static HTML, CSS, and JavaScript. Image cropping and ID-card
+generation run in the browser. No database or server function is needed.
+
+`vercel.json` lets browsers reuse public assets for one hour. Stable file
+names are not marked immutable, so changed files can refresh after that hour.
+HTML keeps the platform cache policy. Do not apply these public cache headers
+to private customer files, authentication, or transactional endpoints.
+
+Bot controls and spending alerts are separate Vercel project/team settings.
+Caching does not remove bandwidth charges for first visits or bot traffic.
