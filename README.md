@@ -43,8 +43,8 @@ Contributions to Environ INDIA are welcome! If you find any bugs or have suggest
 This app uses static HTML, CSS, and JavaScript. Image cropping and ID-card
 generation run in the browser. No database or server function is needed.
 
-`vercel.json` lets browsers reuse public assets for one hour. Stable file
-names are not marked immutable, so changed files can refresh after that hour.
+`vercel.json` lets browsers reuse public assets for one day. Stable file
+names are not marked immutable, so changed files can refresh after that day.
 HTML keeps the platform cache policy. Do not apply these public cache headers
 to private customer files, authentication, or transactional endpoints.
 
